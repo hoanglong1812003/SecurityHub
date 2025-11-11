@@ -211,6 +211,385 @@ Khám phá các dịch vụ AWS có thể tích hợp:
 - [AWS Support](https://aws.amazon.com/premiumsupport/)
 - [Stack Overflow - AWS](https://stackoverflow.com/questions/tagged/amazon-web-services)
 
+
+## 🏛️ AWS Well-Architected Framework
+
+Workshop này được thiết kế theo [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/):
+
+### Security (Bảo mật)
+- ✅ Sử dụng IAM roles và policies với least privilege
+- ✅ Encryption at rest và in transit
+- ✅ Network security với Security Groups và NACLs
+- ✅ Audit và compliance với CloudTrail
+
+### Reliability (Độ tin cậy)
+- ✅ Multi-AZ deployment khi có thể
+- ✅ Automated backups và disaster recovery
+- ✅ Monitoring và alerting
+- ✅ Self-healing với Auto Scaling
+
+### Performance Efficiency (Hiệu suất)
+- ✅ Chọn compute resources phù hợp
+- ✅ Monitoring với CloudWatch
+- ✅ Caching strategies
+- ✅ Load balancing và distribution
+
+### Cost Optimization (Tối ưu chi phí)
+- ✅ Right-sizing resources
+- ✅ Sử dụng Free Tier khi có thể
+- ✅ Reserved Instances cho production
+- ✅ Cost monitoring và budgets
+
+### Operational Excellence (Vận hành xuất sắc)
+- ✅ Infrastructure as Code (CloudFormation/CDK)
+- ✅ Automated deployment pipelines
+- ✅ Comprehensive logging
+- ✅ Regular testing và updates
+
+---
+
+## 🔒 Security Best Practices
+
+### IAM & Access Management
+```bash
+# Tạo IAM role với least privilege
+aws iam create-role --role-name WorkshopRole \
+  --assume-role-policy-document file://trust-policy.json
+
+# Attach managed policies
+aws iam attach-role-policy --role-name WorkshopRole \
+  --policy-arn arn:aws:iam::aws:policy/ReadOnlyAccess
+```
+
+### Encryption
+- **At Rest**: Enable encryption cho tất cả storage services
+- **In Transit**: Sử dụng HTTPS/TLS cho tất cả communications
+- **KMS**: Quản lý encryption keys với AWS KMS
+
+### Network Security
+```bash
+# Tạo security group với inbound rules hạn chế
+aws ec2 create-security-group \
+  --group-name workshop-sg \
+  --description "Workshop Security Group" \
+  --vpc-id vpc-xxxxx
+
+# Chỉ cho phép traffic cần thiết
+aws ec2 authorize-security-group-ingress \
+  --group-id sg-xxxxx \
+  --protocol tcp \
+  --port 443 \
+  --cidr 0.0.0.0/0
+```
+
+### Compliance & Auditing
+- Enable CloudTrail để audit API calls
+- Sử dụng Config để track configuration changes
+- Regular security assessments với Security Hub
+
+---
+
+## 🚀 Deployment Options
+
+Workshop này hỗ trợ nhiều phương pháp deployment:
+
+### Option 1: AWS Console (Manual)
+Phù hợp cho learning và testing
+```
+1. Login to AWS Console
+2. Navigate to service
+3. Follow step-by-step guide
+4. Verify deployment
+```
+
+### Option 2: AWS CLI
+Tự động hóa deployment với scripts
+```bash
+# Configure AWS CLI
+aws configure
+
+# Run deployment script
+./deploy.sh
+```
+
+### Option 3: CloudFormation
+Infrastructure as Code cho production
+```bash
+# Deploy CloudFormation stack
+aws cloudformation create-stack \
+  --stack-name workshop-stack \
+  --template-body file://template.yaml \
+  --capabilities CAPABILITY_IAM
+
+# Monitor stack creation
+aws cloudformation describe-stacks \
+  --stack-name workshop-stack
+```
+
+### Option 4: AWS CDK
+Modern IaC với programming languages
+```bash
+# Install CDK
+npm install -g aws-cdk
+
+# Bootstrap CDK
+cdk bootstrap
+
+# Deploy CDK app
+cdk deploy
+```
+
+---
+
+## 📊 AWS Services Used
+
+Workshop này sử dụng các AWS services sau:
+
+| Service | Purpose | Documentation |
+|---------|---------|---------------|
+| EC2 | [Purpose based on workshop] | [AWS EC2 Docs](https://docs.aws.amazon.com/) |
+| Lambda | [Purpose based on workshop] | [AWS Lambda Docs](https://docs.aws.amazon.com/) |
+| ECS | [Purpose based on workshop] | [AWS ECS Docs](https://docs.aws.amazon.com/) |
+| Fargate | [Purpose based on workshop] | [AWS Fargate Docs](https://docs.aws.amazon.com/) |
+| Elastic Beanstalk | [Purpose based on workshop] | [AWS Elastic Beanstalk Docs](https://docs.aws.amazon.com/) |
+
+> **Lưu ý**: Chi tiết về từng service xem trong workshop content
+
+---
+
+## 🧪 Testing & Validation
+
+### Pre-deployment Testing
+```bash
+# Validate CloudFormation template (nếu có)
+aws cloudformation validate-template \
+  --template-body file://template.yaml
+
+# Test IAM policies
+aws iam simulate-principal-policy \
+  --policy-source-arn arn:aws:iam::123456789012:role/WorkshopRole \
+  --action-names s3:GetObject
+```
+
+### Post-deployment Validation
+```bash
+# Check resource status
+aws <service> describe-<resource>
+
+# Verify security groups
+aws ec2 describe-security-groups --group-ids sg-xxxxx
+
+# Test application endpoint
+curl https://your-app-endpoint.com/health
+```
+
+### Integration Testing
+```bash
+# Run integration tests
+python -m pytest tests/integration/
+
+# Load testing (nếu cần)
+aws cloudwatch put-metric-data \
+  --namespace Workshop/LoadTest \
+  --metric-name RequestCount \
+  --value 1000
+```
+
+---
+
+## 📈 Monitoring & Observability
+
+### CloudWatch Metrics
+```bash
+# View metrics
+aws cloudwatch get-metric-statistics \
+  --namespace AWS/<Service> \
+  --metric-name <MetricName> \
+  --start-time 2024-01-01T00:00:00Z \
+  --end-time 2024-01-01T23:59:59Z \
+  --period 3600 \
+  --statistics Average
+
+# Create dashboard
+aws cloudwatch put-dashboard \
+  --dashboard-name workshop-dashboard \
+  --dashboard-body file://dashboard.json
+```
+
+### CloudWatch Logs
+```bash
+# Query logs
+aws logs filter-log-events \
+  --log-group-name /aws/<service> \
+  --filter-pattern "ERROR"
+
+# Create log insights query
+aws logs start-query \
+  --log-group-name /aws/<service> \
+  --start-time $(date -u -d '1 hour ago' +%s) \
+  --end-time $(date -u +%s) \
+  --query-string 'fields @timestamp, @message | filter @message like /ERROR/'
+```
+
+### X-Ray Tracing
+```bash
+# Get trace summaries
+aws xray get-trace-summaries \
+  --start-time $(date -u -d '1 hour ago' +%s) \
+  --end-time $(date -u +%s)
+
+# Analyze service graph
+aws xray get-service-graph \
+  --start-time $(date -u -d '1 hour ago' +%s) \
+  --end-time $(date -u +%s)
+```
+
+### Alerting
+```bash
+# Create CloudWatch alarm
+aws cloudwatch put-metric-alarm \
+  --alarm-name high-cpu \
+  --alarm-description "Alert when CPU > 80%" \
+  --metric-name CPUUtilization \
+  --namespace AWS/EC2 \
+  --statistic Average \
+  --period 300 \
+  --threshold 80 \
+  --comparison-operator GreaterThanThreshold \
+  --evaluation-periods 2 \
+  --alarm-actions arn:aws:sns:region:account-id:topic
+```
+
+---
+
+## 🎓 Prerequisites (Chi tiết)
+
+### AWS Account Requirements
+- [ ] Active AWS account với billing enabled
+- [ ] Root account MFA enabled
+- [ ] IAM user với administrator access (cho workshop)
+- [ ] AWS CLI configured với credentials
+
+### Technical Knowledge
+- [ ] Hiểu biết cơ bản về cloud computing concepts
+- [ ] Kinh nghiệm với Linux/Unix command line
+- [ ] Kiến thức về networking (TCP/IP, DNS, HTTP/HTTPS)
+- [ ] Programming basics (cho automation scripts)
+
+### Software Prerequisites
+```bash
+# AWS CLI
+aws --version  # Should be v2.x
+
+# Python (nếu cần)
+python3 --version  # Should be 3.8+
+
+# Node.js (nếu cần CDK)
+node --version  # Should be 18+
+
+# Git
+git --version
+
+# Hugo (cho workshop content)
+hugo version
+```
+
+### AWS Service Limits
+```bash
+# Check current service quotas
+aws service-quotas list-service-quotas \
+  --service-code ec2
+
+# Request quota increase nếu cần
+aws service-quotas request-service-quota-increase \
+  --service-code ec2 \
+  --quota-code L-1216C47A \
+  --desired-value 50
+```
+
+---
+
+## 🔐 IAM Permissions Required
+
+Minimum IAM permissions cần thiết cho workshop:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:*",
+        "iam:CreateRole",
+        "iam:AttachRolePolicy",
+        "iam:PassRole",
+        "<service>:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+> **⚠️ Lưu ý**: Đây là permissions cho workshop. Production cần least privilege.
+
+---
+
+## 📚 Additional Resources
+
+### AWS Documentation
+- [AWS Documentation Home](https://docs.aws.amazon.com/)
+- [AWS Architecture Center](https://aws.amazon.com/architecture/)
+- [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
+- [AWS Security Best Practices](https://aws.amazon.com/security/best-practices/)
+
+### AWS Training & Certification
+- [AWS Skill Builder](https://skillbuilder.aws/) - Free digital training
+- [AWS Workshops](https://workshops.aws/) - Hands-on workshops
+- [AWS Ramp-Up Guides](https://aws.amazon.com/training/ramp-up-guides/)
+- [AWS Certification](https://aws.amazon.com/certification/)
+
+### Community & Support
+- [AWS re:Post](https://repost.aws/) - Community Q&A
+- [AWS Forums](https://forums.aws.amazon.com/)
+- [AWS User Groups](https://aws.amazon.com/developer/community/usergroups/)
+- [AWS Events](https://aws.amazon.com/events/)
+
+### Tools & SDKs
+- [AWS CLI](https://aws.amazon.com/cli/)
+- [AWS SDKs](https://aws.amazon.com/tools/)
+- [AWS CDK](https://aws.amazon.com/cdk/)
+- [AWS Copilot](https://aws.amazon.com/containers/copilot/)
+
+---
+
+## 🏆 Workshop Completion
+
+### Validation Checklist
+- [ ] Tất cả resources đã deploy thành công
+- [ ] Security best practices đã áp dụng
+- [ ] Monitoring và logging đã setup
+- [ ] Testing đã pass
+- [ ] Documentation đã complete
+- [ ] Cleanup đã thực hiện
+
+### Next Steps After Completion
+1. ⭐ Star repository nếu hữu ích
+2. 📝 Share feedback và improvements
+3. 🎓 Làm workshop tiếp theo trong learning path
+4. 🏅 Consider AWS certification
+5. 👥 Tham gia AWS community
+
+### Certificate
+Sau khi hoàn thành workshop:
+- Review tất cả concepts đã học
+- Thực hành lại từng bước
+- Explore advanced features
+- Build projects riêng với AWS
+
+---
+
 ## 🔧 Troubleshooting
 
 ### Lỗi Thường Gặp
