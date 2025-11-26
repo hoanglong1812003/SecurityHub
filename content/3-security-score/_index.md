@@ -1,38 +1,40 @@
 +++
-title = "Score for each set of criteria"
+title = "Score by Security Standards"
 weight = 3
 chapter = false
 pre = "<b>3. </b>"
 +++
 
-#### Check and evaluate each set of standards
+#### Review Evaluation by Each Security Standard
 
-After a period of time, Security Hub will issue assessments based on the score and indicate the security risks that exist on your account. To list the risks found, you can visit each set of standards to see the rating points:
+After some time, Security Hub will generate evaluations based on scores and highlight existing security risks in your account. To list the detected risks, you can navigate into each security standard to view the assessment results:
 
-1. Login to **Amazon Management Console**. In the search bar, type and search for **Security Hub** service.
+1. Log in to the **Amazon Management Console**. In the search bar, type and search for **Security Hub CSPM**.
 
-![Security Hub](/images/1/2.1-1.png?width=90pc)
+![Security Hub](/images/image-ws00018/9.png)
 
-2. In the left navigation bar, select **Security standards** to see an overview of the assessment scores for each set of security assessment standards.
+2. In the left navigation panel, select **Security standards** to view the overall assessment scores for each security framework.
 
-![Security Hub](/images/1/2.2-2.png?width=90pc)
+3. To view detailed evaluation criteria for each standard, choose **View results** (for the respective security standard).
 
-3. To view the detailed evaluation criteria of each set of criteria, select **View results** (by each set of criteria.)
+   - Example: The **Foundational Security Best Practices v1.0.0** standard
 
-![Security Hub](/images/1/2.2-3.png?width=90pc)
+![Security Hub](/images/image-ws00018/14.png)
 
-![Security Hub](/images/1/2.2-4.png?width=90pc)
+![Security Hub](/images/image-ws00018/15.png)
 
-![Security Hub](/images/1/2.2-5.png?width=90pc)
+4. If there are certain controls you do not want to apply, you can remove them from the evaluation. Select the specific control in the list of the corresponding standard.
 
-4. In case you have some criteria that you do not want to apply, to remove them from the evaluation, you can select that criterion in the list of criteria.
-    - **Example**: You want to remove *EC2 instances managed by Systems Manager should have an association compliance status of COMPLIANT*.
-![Security Hub](/images/1/2.2-6.png?width=90pc)
+   - **Example**: You want to disable *EC2 instances managed by Systems Manager should have an association compliance status of COMPLIANT* in the **PCI DSS v3.2.1** standard.
 
-- On the detailed information page of the criteria, click **Enabled**, then select **Disable**.
+![Security Hub](/images/image-ws00018/16.png)
 
-![Security Hub](/images/1/2.2-7.png?width=90pc)
+![Security Hub](/images/image-ws00018/17.png)
 
-- Enter the reason for the rejection, select **Disable**.
+- On the control details page, click **Enabled**, then choose **Disable**.
 
-![Security Hub](/images/1/2.2-8.png?width=90pc)
+![Security Hub](/images/image-ws00018/18.png)
+
+- Enter a reason for disabling the control, then click **Disable**.
+
+![Security Hub](/images/image-ws00018/19.png)
