@@ -14,7 +14,7 @@ There are a variety of powerful security tools at your disposal, from firewalls 
 
 The risks found are visually summarized on an integrated dashboard with charts and tables that you can interact with. You can also continuously monitor your system using automated compliance checks against best practices from AWS and the market standards your business is following.
 
-![Security Hub](../images/serviceicon.png?featherlight=false&width=10pc)
+![Security Hub](/images/serviceicon.png?featherlight=false&width=10pc)
 
 #### Cost 
 

@@ -14,7 +14,7 @@ Sẽ có rất nhiều các công cụ bảo mật mạnh mẽ để bạn sử 
 
 Các rủi ro được tìm thấy sẽ được tóm tắt trực quan trên trang tổng quan tích hợp với các biểu đồ và bảng mà bạn có thể tương tác. Bạn cũng có thể giám sát hệ thống của bạn liên tục bằng cách sử dụng chức năng kiểm tra tự động sự tuân thủ so với các thực nghiệm tối ưu từ AWS và các tiêu chuẩn trên thị trường mà doanh nghiệp của bạn đang tuân theo.
 
-![Security Hub](../images/serviceicon.png?featherlight=false&width=10pc)
+![Security Hub](/images/serviceicon.png?featherlight=false&width=10pc)
 
 #### Chi phí
 
