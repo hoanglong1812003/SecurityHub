@@ -19,6 +19,6 @@ The **Center for Internet Security (CIS) AWS Foundations Benchmark** is a set of
 
 #### PCI DSS
 
-![PCI DSS](/images/1/pcids.png?width=20pc)
+![PCI DSS](/images/1/1.jpg?width=30pc)
 
 **Payment Card Industry Data Security Standard (PCI DSS)** is an information security standard for objects that store, process and transmit data about bank cards. This Security Hub benchmark is automatically checked for your compliance against each small set of requirements set forth by the PCI DSS.

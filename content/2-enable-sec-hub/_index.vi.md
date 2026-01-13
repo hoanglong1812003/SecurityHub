@@ -16,14 +16,14 @@ pre = "<b>2. </b>"
 1. Đăng nhập vào **Amazon Management Console**. Trên thanh tìm kiếm, nhập và tìm kiếm dịch vụ **Security Hub CSPM**.
 2. Ở trang **AWS Security Hub**, chọn **Go to Security Hub CSPM**.
 
-![Security Hub](/images/image-ws00018/9.png)
+![Security Hub](/images/updateimage/1.png)
 
-![Security Hub](/images/image-ws00018/10.png)
+![Security Hub](/images/updateimage/2.png)
 
 3. Trên trang **Welcome to AWS Security Hub**, chọn các tiêu chuẩn về bảo mật (**Security standards**) như là **AWS Foundational Security Best Practices**, **CIS AWS Foundations Benchmark**, và **PCI DSS**.
 4. Chọn **Enable Security Hub**.
 
-![Security Hub](/images/image-ws00018/11.png)
+![Security Hub](/images/updateimage/3.png)
 
 5. Sau khi kích hoạt, bạn sẽ cần chờ một khoản thời gian để Security Hub đánh giá **Security Score** của tài khoản hiện tại của bạn so với từng bộ tiêu chuẩn bảo mật mà bạn thiết lập.
 

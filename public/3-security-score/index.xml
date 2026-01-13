@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Score for each set of criteria on Enable AWS Security Hub</title>
+    <title>Score by Security Standards on Enable AWS Security Hub</title>
     <link>//localhost:1313/3-security-score/</link>
-    <description>Recent content in Score for each set of criteria on Enable AWS Security Hub</description>
+    <description>Recent content in Score by Security Standards on Enable AWS Security Hub</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="//localhost:1313/3-security-score/index.xml" rel="self" type="application/rss+xml" />

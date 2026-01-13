@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Clean up resources :: Enable AWS Security Hub</title>
+    <title>Clean Up Resources :: Enable AWS Security Hub</title>
 
     
-    <link href="/css/nucleus.css?1764000102" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1764000102" rel="stylesheet">
-    <link href="/css/hybrid.css?1764000102" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1764000102" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1764000102" rel="stylesheet">
-    <link href="/css/auto-complete.css?1764000102" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1764000102" rel="stylesheet">
-    <link href="/css/theme.css?1764000102" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1764000102" rel="stylesheet">
+    <link href="/css/nucleus.css?1768288350" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1768288350" rel="stylesheet">
+    <link href="/css/hybrid.css?1768288350" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1768288350" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1768288350" rel="stylesheet">
+    <link href="/css/auto-complete.css?1768288350" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1768288350" rel="stylesheet">
+    <link href="/css/theme.css?1768288350" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1768288350" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1764000102" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1768288350" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1764000102"></script>
+    <script src="/js/jquery-3.3.1.min.js?1768288350"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1764000102"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1764000102"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1768288350"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1768288350"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1764000102"></script>
+<script type="text/javascript" src="/js/search.js?1768288350"></script>
 
     
   </div>
@@ -134,13 +134,13 @@
  
   
     
-    <li data-nav-id="/3-security-score/" title="Score for each set of criteria" class="dd-item 
+    <li data-nav-id="/3-security-score/" title="Score by Security Standards" class="dd-item 
         
         
         
         ">
       <a href="/3-security-score/">
-          <b>3. </b>Score for each set of criteria
+          <b>3. </b>Score by Security Standards
           
             <i class="fas fa-check read-icon"></i>
           
@@ -160,13 +160,13 @@
  
   
     
-    <li data-nav-id="/4-cleanup/" title="Clean up resources" class="dd-item 
+    <li data-nav-id="/4-cleanup/" title="Clean Up Resources" class="dd-item 
         
         active
         
         ">
       <a href="/4-cleanup/">
-          <b>4. </b>Clean up resources
+          <b>4. </b>Clean Up Resources
           
             <i class="fas fa-check read-icon"></i>
           
@@ -310,7 +310,7 @@
             
           
           
-            <a href='/'>Getting Started with AWS Security Hub</a> > Clean up resources
+            <a href='/'>Getting Started with AWS Security Hub</a> > Clean Up Resources
           
         
           
@@ -345,7 +345,7 @@
           
             <h1>
               
-              Clean up resources
+              Clean Up Resources
             </h1>
           
 
@@ -353,23 +353,50 @@
 
 
 
-	<p>In this section, you will disable AWS Security Hub so there is no cost to your AWS account (Most of the cost of enabling Security Hub comes from AWS Config ). However, if you are deploying to production, we recommend leaving AWS Security Hub running to help you better manage account security.</p>
-<h4 id="deactivate-aws-security-hub">Deactivate AWS Security Hub</h4>
+	<p>In this section, you will disable AWS Security Hub to avoid incurring additional costs for your AWS account (most of the cost comes from AWS Config). However, if you are operating in a production environment, you should keep AWS Security Hub enabled to help better manage your account security.</p>
+<h4 id="disable-aws-security-hub">Disable AWS Security Hub</h4>
 <ol>
 <li>
-<p>Access to Security Hub Management Console</p>
+<p>Go to <strong>Security Hub CSPM</strong></p>
 <ul>
-<li>Select Settings in the left sidebar</li>
+<li>Select <strong>Settings &gt; General</strong> from the left navigation panel.</li>
 </ul>
 </li>
 <li>
-<p>In the <strong>Settings</strong> page on the right, select the General tab</p>
+<p>In the <strong>Settings</strong> page on the right, select the <strong>General</strong> tab</p>
 <ul>
-<li>Scroll to the bottom and select Disable AWS Security Hub</li>
-<li>In the prompt, select Disable AWS Security Hub</li>
+<li>Scroll to the bottom and choose <strong>Disable AWS Security Hub</strong></li>
+<li>In the prompt, select <strong>Disable AWS Security Hub</strong></li>
 </ul>
 </li>
 </ol>
+<p><img src="/images/image-ws00018/20.png" alt="Security Hub"></p>
+<h4 id="disable-aws-config">Disable AWS Config</h4>
+<ol start="3">
+<li>Go to <strong>AWS Config</strong>, on the right select <strong>Settings</strong>, then choose <strong>Stop recording</strong></li>
+</ol>
+<p><img src="/images/image-ws00018/21.png" alt="Security Hub"></p>
+<h4 id="delete-s3-bucket">Delete S3 Bucket</h4>
+<ol start="4">
+<li>Go to <strong>AWS S3 Bucket</strong></li>
+</ol>
+<p><img src="/images/image-ws00018/22.png" alt="Security Hub"></p>
+<ul>
+<li>Select the bucket you created, then choose <strong>Empty</strong></li>
+</ul>
+<p><img src="/images/image-ws00018/23.png" alt="Security Hub"></p>
+<ul>
+<li>Type <em>permanently delete</em>, then choose <strong>Empty</strong>.</li>
+</ul>
+<p><img src="/images/image-ws00018/24.png" alt="Security Hub"></p>
+<ul>
+<li>Select the same bucket again and choose <strong>Delete</strong></li>
+</ul>
+<p><img src="/images/image-ws00018/25.png" alt="Security Hub"></p>
+<ul>
+<li>Enter the bucket name and choose <strong>Delete bucket</strong></li>
+</ul>
+<p><img src="/images/image-ws00018/26.png" alt="Security Hub"></p>
 
 
 
@@ -482,7 +509,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/3-security-score/" title="Score for each set of criteria"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/3-security-score/" title="Score by Security Standards"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/1-security-standards/" title="Security Standards" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -495,19 +522,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1764000102"></script>
-    <script src="/js/perfect-scrollbar.min.js?1764000102"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1764000102"></script>
-    <script src="/js/jquery.sticky.js?1764000102"></script>
-    <script src="/js/featherlight.min.js?1764000102"></script>
-    <script src="/js/highlight.pack.js?1764000102"></script>
+    <script src="/js/clipboard.min.js?1768288350"></script>
+    <script src="/js/perfect-scrollbar.min.js?1768288350"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1768288350"></script>
+    <script src="/js/jquery.sticky.js?1768288350"></script>
+    <script src="/js/featherlight.min.js?1768288350"></script>
+    <script src="/js/highlight.pack.js?1768288350"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1764000102"></script>
-    <script src="/js/learn.js?1764000102"></script>
-    <script src="/js/hugo-learn.js?1764000102"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1768288350"></script>
+    <script src="/js/learn.js?1768288350"></script>
+    <script src="/js/hugo-learn.js?1768288350"></script>
 
-    <link href="/mermaid/mermaid.css?1764000102" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1764000102"></script>
+    <link href="/mermaid/mermaid.css?1768288350" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1768288350"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

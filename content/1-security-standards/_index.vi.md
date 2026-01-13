@@ -19,6 +19,6 @@ Bộ tiêu chuẩn **Center for Internet Security (CIS) AWS Foundations Benchmar
 
 #### PCI DSS
 
-![PCI DSS](/images/1/pcidss.png?width=20pc)
+![PCI DSS](/images/1/1.jpg?width=30pc)
 
 Bộ tiêu chuẩn **Payment Card Industry Data Security Standard (PCI DSS)** là tiêu chuẩn an toàn thông tin cho các đối tượng lưu trữ, xử lý và truyền dữ liệu về thẻ ngân hàng. Tiêu chuẩn cho Security Hub này được tự động kiểm tra sự tuân thủ của bạn so với từng tập các yêu cầu nhỏ được đưa ra bởi PCI DSS.
