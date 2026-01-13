@@ -1,7 +1,8 @@
 baseURL = "https://hoanglong1812003.github.io/SecurityHub/"
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
-
+relativeURLs = true
+canonifyURLs = true
 # For search functionality
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
